@@ -1,6 +1,6 @@
-import $ from 'jquery';
-var _ = require('lodash');
-import '../css/main.css';
+const $ = require( "jquery" );
+const _ = require("lodash");
+import "../css/main.css";
 
 $(document).ready(function () {
   $('body').append('<div id="logo"></div>');
