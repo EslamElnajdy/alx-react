@@ -1,0 +1,52 @@
+.App {
+  height: 100%;
+}
+
+.App-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 5px solid red;
+}
+
+.App-header img {
+  width: 200px;
+}
+
+.App-header h1 {
+  color: red;
+}
+
+.App-body {
+  margin: 60px 0 0 20px;
+}
+
+.App-footer {
+  position: absolute;
+  bottom: 0;
+  width: 99%;
+  border-top: 5px solid red;
+}
+
+.App-footer p {
+  text-align: center;
+}
+
+.App-body label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.App-body input {
+  display: block;
+  margin-bottom: 15px;
+  padding: 5px;
+  width: 200px;
+}
+
+.App-body button {
+  padding: 10px 20px;
+  background-color: #61dafb;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
