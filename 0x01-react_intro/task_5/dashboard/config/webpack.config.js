@@ -6,6 +6,12 @@ module.exports = {
     filename: "bundle.js",
     path: path.resolve(__dirname, "../dist")
   },
+  mode: 'development',
+  devtool: 'inline-source-map',
+  devServer: {
+    static: './dist',
+    hot: true,
+  },
   module: {
     rules: [
       {
