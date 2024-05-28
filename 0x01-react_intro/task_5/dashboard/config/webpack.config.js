@@ -2,39 +2,43 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "../dist")
+    path: path.resolve(__dirname, '../dist'),
+    filename: 'bundle.js',
   },
   mode: 'development',
-  devtool: 'inline-source-map',
   devServer: {
-    static: path.join(__dirname, '../dist'),
-    compress: true,
-    port: 8080,
+    static: path.resolve(__dirname, '../dist'),
     hot: true,
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/, // Support .js and .jsx files
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
         },
       },
       {
-        test: /\.css$/i,
+        test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        test: /\.(png|jpg|gif|svg)$/,
         use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images/',
+            },
+          },
           {
             loader: 'image-webpack-loader',
             options: {
+              bypassOnDebug: true,
               disable: true,
             },
           },
@@ -42,12 +46,11 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    extensions: ['.js', '.jsx'], // Resolve .js and .jsx files
-  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './dist/index.html',
+      favicon: path.resolve(__dirname, '../dist/favicon.png'),
     }),
   ],
+  devtool: 'inline-source-map',
 };
