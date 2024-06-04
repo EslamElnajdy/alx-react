@@ -6,7 +6,12 @@ import PropTypes from 'prop-types';
 export default function CourseListRow({isHeader = false, textFirstCell, textSecondCell = null}) {
   const rowStyle = {backgroundColor: '#f5f5f5ab'}
   const headerStyle = {backgroundColor: '#deb5b545'}
-  const style = isHeader ? headerStyle : rowStyle;
+  let style
+  if (isHeader)
+    style = headerStyle
+  else
+    style = rowStyle
+
 
   if (isHeader) {
     if (textSecondCell === null) {
