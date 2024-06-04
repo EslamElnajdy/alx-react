@@ -1,7 +1,7 @@
 import React from "react";
-import { shallow } from 'enzyme';
-import './WithLogging';
-import '../Login/Login';
+import { mount } from 'enzyme';
+import WithLogging from './WithLogging';
+import Login from  '../Login/Login';
 
 describe("test the HOC component", () => {
 
