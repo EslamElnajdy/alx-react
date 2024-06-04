@@ -14,15 +14,15 @@ export default function CourseListRow({isHeader = false, textFirstCell, textSeco
   if (isHeader) {
     if (textSecondCell === null) {
       return (
-        <tr style={rowStyle}>
-          <th style={headerStyle} colSpan="2">{textFirstCell}</th>
+        <tr style={headerStyle}>
+          <th colSpan="2">{textFirstCell}</th>
         </tr>
       );
     } else {
       return (
-        <tr>
-          <th style={headerStyle} >{textFirstCell}</th>
-          <th style={headerStyle} >{textSecondCell}</th>
+        <tr style={headerStyle}>
+          <th >{textFirstCell}</th>
+          <th >{textSecondCell}</th>
         </tr>
       );
     }
