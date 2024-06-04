@@ -10,17 +10,17 @@ const headerStyle = {
   backgroundColor: '#deb5b545'
 }
 export default function CourseListRow({isHeader = false, textFirstCell, textSecondCell = null}) {
-  
+  let styleBackground = isHeader ? headerStyle : rowStyle;
   if (isHeader) {
     if (textSecondCell === null) {
       return (
-        <tr style={headerStyle}>
+        <tr style={styleBackground}>
           <th colSpan="2">{textFirstCell}</th>
         </tr>
       );
     } else {
       return (
-        <tr style={headerStyle}>
+        <tr style={styleBackground}>
           <th >{textFirstCell}</th>
           <th >{textSecondCell}</th>
         </tr>
@@ -28,7 +28,7 @@ export default function CourseListRow({isHeader = false, textFirstCell, textSeco
     }
   } else {
     return (
-      <tr style={rowStyle}>
+      <tr style={styleBackground}>
         <td>{textFirstCell}</td>
         <td>{textSecondCell}</td>
       </tr>
