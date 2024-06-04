@@ -4,38 +4,40 @@ import PropTypes from 'prop-types';
 
 
 export default function CourseListRow({isHeader = false, textFirstCell, textSecondCell = null}) {
-  const rowStyle = {backgroundColor: '#f5f5f5ab'}
-  const headerStyle = {backgroundColor: '#deb5b545'}
-  let style
-  if (isHeader)
-    style = headerStyle
-  else
-    style = rowStyle
+  const styleRow = { backgroundColor: '#f5f5f5ab' };
+	const styleHeaderRow = { backgroundColor: '#deb5b545' };
 
+	let myElement;
+	if (isHeader === true) {
+		if (textSecondCell === null) {
+			myElement = <th colSpan="2">{textFirstCell}</th>;
+		} else {
+			myElement = (
+				<>
+					<th>{textFirstCell}</th>
+					<th>{textSecondCell}</th>
+				</>
+			);
+		}
+	} else {
+		myElement = (
+			<>
+				<td>{textFirstCell}</td>
+				<td>{textSecondCell}</td>
+			</>
+		);
+	}
 
-  if (isHeader) {
-    if (textSecondCell === null) {
-      return (
-        <tr style={style}>
-          <th colSpan="2">{textFirstCell}</th>
-        </tr>
-      );
-    } else {
-      return (
-        <tr style={style}>
-          <th >{textFirstCell}</th>
-          <th >{textSecondCell}</th>
-        </tr>
-      );
-    }
-  } else {
-    return (
-      <tr style={style}>
-        <td>{textFirstCell}</td>
-        <td>{textSecondCell}</td>
-      </tr>
-    );
-  }
+	let stylesBackground;
+
+	if (isHeader) {
+		stylesBackground = styleHeaderRow;
+	} else {
+		stylesBackground = styleRow;
+	}
+	return (
+		<tr style={stylesBackground}>{myElement}</tr>
+	);
 };
 
 CourseListRow.propTypes = {
